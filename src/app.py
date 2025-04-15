@@ -2,32 +2,48 @@ import pandas as pd
 import numpy as np
 import lightgbm as lgb
 import pickle
+from flask import Flask, render_template, request, jsonify
 
 from sklearn.metrics import classification_report, confusion_matrix, roc_auc_score
 from sklearn.preprocessing import StandardScaler
 
+app = Flask(__name__, template_folder='templates', static_folder='static')
+
 model = lgb.Booster(model_file="models/lightgbm_model.lgb")
 
-with open("data/processed/standard_scaler.pkl", "rb") as f:
-    scaler = pickle.load(f)
+@app.route('/')
+def index():
+    return render_template('index.html')
 
-with open("data/processed/feature_list.pkl", "rb") as f:
-    feature_list = pickle.load(f)
+@app.route('/predict', methods=['POST'])
+def predict():
+    try:
+        # Get JSON data
+        data = request.get_json()
 
-new_data = pd.read_csv("data/raw/new_patients.csv")
+        # Extract and convert all values to float
+        input_data = [float(data.get(f)) for f in [
+            'HighBP', 'HighChol', 'CholCheck', 'Smoker', 'Stroke',
+            'HeartDiseaseorAttack', 'PhysActivity', 'Fruits', 'Veggies',
+            'HvyAlcoholConsump', 'AnyHealthcare', 'NoDocbcCost', 'DiffWalk', 'Sex',
+            'BMI', 'GenHlth', 'Age', 'Education', 'Income',
+            'MentHlth_Bin', 'PhysHlth_Bin'
+        ]]
 
-X_new = new_data[feature_list]
+        # Reshape into 2D array
+        input_np = np.array([input_data])
 
-X_new_scaled = scaler.transform(X_new)
+        # Predict
+        prob = model.predict(input_np)[0]
+        result = int(prob >= 0.8)
 
-threshold = 0.8
-probs = model.predict(X_new_scaled)
-preds = (probs >= threshold).astype(int)
+        return jsonify({
+            'diabetes_risk': result,
+            'probability': round(prob, 4)
+        })
 
-new_data["Diabetes_Risk"] = preds
-new_data["Diabetes_Probability"] = probs
+    except Exception as e:
+        return jsonify({'error': str(e)})
 
-print(new_data[["Diabetes_Risk", "Diabetes_Probability"]])
-new_data.to_csv("new_predictions.csv", index=False)
-
-print("Predictions saved to new_predictions.csv.")
+if __name__ == '__main__':
+    app.run(debug=True)

@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    padding: 2rem;
+  }
+  
+  h1 {
+    color: #2c3e50;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  button {
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+  
+  #result {
+    margin-top: 2rem;
+  }
+
+  income-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  
+  income-options label {
+    background-color: #f0f0f0;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+  }
+  
+  income-options input[type="radio"] {
+    display: none;
+  }
+  
+  income-options input[type="radio"]:checked + label,
+  income-options label:hover {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+  }
