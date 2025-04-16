@@ -4,228 +4,228 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>DIABETES RISK PREDICTION</title>
+        <title>PREDICCIÓN DE RIESGO DE DIABETES</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
 </head>
 
 <body>
-    <h1>Diabetes Risk Predictor</h1>
+    <h1>Predicción de Riesgo de Diabetes</h1>
 
       <form id="predict-form">
 
         <div class="form-group">
-          <label for="HighBP">Do you have High Blood Pressure?</label>
+          <label for="HighBP">¿Tienes presión arterial alta?</label>
           <div class="btn-group" role="group" aria-label="HighBP">
-            <input type="radio" class="btn-check" name="HighBP" id="highbp0" value="0" autocomplete="off">
+            <input type="radio" class="btn-check" name="HighBP" id="highbp0" value="0" autocomplete="off" required>
             <label class="btn btn-outline-dark" for="highbp0">No</label>
       
             <input type="radio" class="btn-check" name="HighBP" id="highbp1" value="1" autocomplete="off">
-            <label class="btn btn-outline-dark" for="highbp1">Yes</label>
+            <label class="btn btn-outline-dark" for="highbp1">Si</label>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="HighChol">Do you have High Cholesterol?</label>
+          <label for="HighChol">¿Tienes colesterol alto?</label>
           <div class="btn-group" role="group" aria-label="HighChol">
-            <input type="radio" class="btn-check" name="HighChol" id="highch0" value="0" autocomplete="off">
+            <input type="radio" class="btn-check" name="HighChol" id="highch0" value="0" autocomplete="off" required>
             <label class="btn btn-outline-dark" for="highch0">No</label>
 
             <input type="radio" class="btn-check" name="HighChol" id="highch1" value="1" autocomplete="off">
-            <label class="btn btn-outline-dark" for="highch1">Yes</label>
+            <label class="btn btn-outline-dark" for="highch1">Si</label>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="CholCheck">Did you have a Cholesterol Check in the past 5 years?</label>
+          <label for="CholCheck">¿Te has hecho un chequeo de colesterol en los últimos 5 años?</label>
           <div class="btn-group" role="group" aria-label="CholCheck">
-            <input type="radio" class="btn-check" name="CholCheck" id="cholch0" value="0" autocomplete="off">
+            <input type="radio" class="btn-check" name="CholCheck" id="cholch0" value="0" autocomplete="off" required>
             <label class="btn btn-outline-dark" for="cholch0">No</label>
 
             <input type="radio" class="btn-check" name="CholCheck" id="cholch1" value="1" autocomplete="off">
-            <label class="btn btn-outline-dark" for="cholch1">Yes</label>
+            <label class="btn btn-outline-dark" for="cholch1">Si</label>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="Smoker">Do you smoke?</label>
+          <label for="Smoker">¿Fumas?</label>
           <div class="btn-group" role="group" aria-label="Smoker">
-            <input type="radio" class="btn-check" name="Smoker" id="smoker0" value="0" autocomplete="off">
+            <input type="radio" class="btn-check" name="Smoker" id="smoker0" value="0" autocomplete="off" required>
             <label class="btn btn-outline-dark" for="smoker0">No</label>
         
             <input type="radio" class="btn-check" name="Smoker" id="smoker1" value="1" autocomplete="off">
-            <label class="btn btn-outline-dark" for="smoker1">Yes</label>
+            <label class="btn btn-outline-dark" for="smoker1">Si</label>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="Stroke">Did you have a stroke?</label>
+          <label for="Stroke">¿Has sufrido un derrame cerebral?</label>
           <div class="btn-group" role="group" aria-label="Stroke">
-            <input type="radio" class="btn-check" name="Stroke" id="stroke0" value="0" autocomplete="off">
+            <input type="radio" class="btn-check" name="Stroke" id="stroke0" value="0" autocomplete="off" required>
             <label class="btn btn-outline-dark" for="stroke0">No</label>
         
             <input type="radio" class="btn-check" name="Stroke" id="stroke01 value="1" autocomplete="off">
-            <label class="btn btn-outline-dark" for="stroke1">Yes</label>
+            <label class="btn btn-outline-dark" for="stroke1">Si</label>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="HeartDiseaseorAttack">Do you have a heart disease or had a heart attack?</label>
+          <label for="HeartDiseaseorAttack">¿Tienes una enfermedad cardíaca o has tenido algún ataque al corazón?</label>
           <div class="btn-group" role="group" aria-label="HeartDiseaseorAttack">
-            <input type="radio" class="btn-check" name="HeartDiseaseorAttack" id="heartdiseaseatt0" value="0" autocomplete="off">
+            <input type="radio" class="btn-check" name="HeartDiseaseorAttack" id="heartdiseaseatt0" value="0" autocomplete="off" required>
             <label class="btn btn-outline-dark" for="heartdiseaseatt0">No</label>
         
             <input type="radio" class="btn-check" name="HeartDiseaseorAttack" id="heartdiseaseatt1" value="1" autocomplete="off">
-            <label class="btn btn-outline-dark" for="heartdiseaseatt1">Yes</label>
+            <label class="btn btn-outline-dark" for="heartdiseaseatt1">Si</label>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="PhysActivity">Do you have physical activity?</label>
+          <label for="PhysActivity">¿Realizas actividad física?</label>
           <div class="btn-group" role="group" aria-label="PhysActivity">
-            <input type="radio" class="btn-check" name="PhysActivity" id="physact0" value="0" autocomplete="off">
+            <input type="radio" class="btn-check" name="PhysActivity" id="physact0" value="0" autocomplete="off" required>
             <label class="btn btn-outline-dark" for="physact0">No</label>
         
             <input type="radio" class="btn-check" name="PhysActivity" id="physact1" value="1" autocomplete="off">
-            <label class="btn btn-outline-dark" for="physact1">Yes</label>
+            <label class="btn btn-outline-dark" for="physact1">Si</label>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="Fruits">Do you consume fruits?</label>
+          <label for="Fruits">¿Consumes frutas?</label>
           <div class="btn-group" role="group" aria-label="Fruits">
-            <input type="radio" class="btn-check" name="Fruits" id="fruit0" value="0" autocomplete="off">
+            <input type="radio" class="btn-check" name="Fruits" id="fruit0" value="0" autocomplete="off" required>
             <label class="btn btn-outline-dark" for="fruit0">No</label>
         
             <input type="radio" class="btn-check" name="Fruits" id="fruit1" value="1" autocomplete="off">
-            <label class="btn btn-outline-dark" for="fruit1">Yes</label>
+            <label class="btn btn-outline-dark" for="fruit1">Si</label>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="Veggies">Do you consume vegetables?</label>
+          <label for="Veggies">¿Consumes verduras?</label>
           <div class="btn-group" role="group" aria-label="Veggies">
-            <input type="radio" class="btn-check" name="Veggies" id="veg0" value="0" autocomplete="off">
+            <input type="radio" class="btn-check" name="Veggies" id="veg0" value="0" autocomplete="off" required>
             <label class="btn btn-outline-dark" for="veg0">No</label>
         
             <input type="radio" class="btn-check" name="Veggies" id="veg1" value="1" autocomplete="off">
-            <label class="btn btn-outline-dark" for="veg1">Yes</label>
+            <label class="btn btn-outline-dark" for="veg1">Si</label>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="HvyAlcoholConsump">Do you consume a lot of alcohol?</label>
+          <label for="HvyAlcoholConsump">¿Consumes mucho alcohol?</label>
           <div class="btn-group" role="group" aria-label="HvyAlcoholConsump">
-            <input type="radio" class="btn-check" name="HvyAlcoholConsump" id="hvyalc0" value="0" autocomplete="off">
+            <input type="radio" class="btn-check" name="HvyAlcoholConsump" id="hvyalc0" value="0" autocomplete="off" required>
             <label class="btn btn-outline-dark" for="hvyalc0">No</label>
         
             <input type="radio" class="btn-check" name="HvyAlcoholConsump" id="hvyalc1" value="1" autocomplete="off">
-            <label class="btn btn-outline-dark" for="hvyalc1">Yes</label>
+            <label class="btn btn-outline-dark" for="hvyalc1">Si</label>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="AnyHealthcare">Are you under any healthcare?</label>
+          <label for="AnyHealthcare">¿Cuentas con algún tipo de atención médica?</label>
           <div class="btn-group" role="group" aria-label="AnyHealthcare">
-            <input type="radio" class="btn-check" name="AnyHealthcare" id="anyhealth0" value="0" autocomplete="off">
+            <input type="radio" class="btn-check" name="AnyHealthcare" id="anyhealth0" value="0" autocomplete="off" required>
             <label class="btn btn-outline-dark" for="anyhealth0">No</label>
         
             <input type="radio" class="btn-check" name="AnyHealthcare" id="anyhealth1" value="1" autocomplete="off">
-            <label class="btn btn-outline-dark" for="anyhealth1">Yes</label>
+            <label class="btn btn-outline-dark" for="anyhealth1">Si</label>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="NoDocbcCost">Can you afford see a doctor?</label>
+          <label for="NoDocbcCost">¿Puedes permitirte ir al médico?</label>
           <div class="btn-group" role="group" aria-label="NoDocbcCost">
-            <input type="radio" class="btn-check" name="NoDocbcCost" id="nodoc0" value="0" autocomplete="off">
+            <input type="radio" class="btn-check" name="NoDocbcCost" id="nodoc0" value="0" autocomplete="off" required>
             <label class="btn btn-outline-dark" for="nodoc0">No</label>
         
             <input type="radio" class="btn-check" name="NoDocbcCost" id="nodoc1" value="1" autocomplete="off">
-            <label class="btn btn-outline-dark" for="nodoc1">Yes</label>
+            <label class="btn btn-outline-dark" for="nodoc1">Si</label>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="DiffWalk">Do you have difficulties walking?</label>
+          <label for="DiffWalk">¿Tienes dificultades para caminar?</label>
           <div class="btn-group" role="group" aria-label="DiffWalk">
-            <input type="radio" class="btn-check" name="DiffWalk" id="diffwalk0" value="0" autocomplete="off">
+            <input type="radio" class="btn-check" name="DiffWalk" id="diffwalk0" value="0" autocomplete="off" required>
             <label class="btn btn-outline-dark" for="diffwalk0">No</label>
         
             <input type="radio" class="btn-check" name="DiffWalk" id="diffwalk1" value="1" autocomplete="off">
-            <label class="btn btn-outline-dark" for="diffwalk1">Yes</label>
+            <label class="btn btn-outline-dark" for="diffwalk1">Si</label>
           </div>
         </div>
         
         <div class="form-group">
-          <label for="Sex">What's your gender?</label>
+          <label for="Sex">¿Cuál es tu género?</label>
           <div class="btn-group" role="group" aria-label="Sex">
-            <input type="radio" class="btn-check" name="Sex" id="sex0" value="0" autocomplete="off">
-            <label class="btn btn-outline-dark" for="sex0">Male</label>
+            <input type="radio" class="btn-check" name="Sex" id="sex0" value="0" autocomplete="off" required>
+            <label class="btn btn-outline-dark" for="sex0">Hombre</label>
         
             <input type="radio" class="btn-check" name="Sex" id="sex1" value="1" autocomplete="off">
-            <label class="btn btn-outline-dark" for="sex1">Female</label>
+            <label class="btn btn-outline-dark" for="sex1">Mujer</label>
           </div>
         </div>
 
         <div class="form-group">
-            <label for="BMI">What's your body mass index?</label>
+            <label for="BMI">¿Cuál es tu índice de masa corporal? (IMC = peso(kg)/altura(m)^2) </label>
             <input type="number" step="0.1" min="10" max="120" class="form-control" name="BMI" id="BMI" placeholder="e.g., 27.3" required>
         </div>
 
         <div class="form-group">
-            <label for="GenHlth">In a range from 1 to 5, what do you consider its your general healh care?</label>
+            <label for="GenHlth">En una escala del 1 al 5, ¿cómo calificarías tu estado general de salud?</label>
             <div class="btn-group" role="group" aria-label="GenHlth">
-                <input type="radio" class="btn-check" name="GenHlth" id="gen1" value="1" autocomplete="off">
-                <label class="btn btn-outline-info" for="gen1">Excellent</label>
+                <input type="radio" class="btn-check" name="GenHlth" id="gen1" value="1" autocomplete="off" required>
+                <label class="btn btn-outline-info" for="gen1">Excelente</label>
         
                 <input type="radio" class="btn-check" name="GenHlth" id="gen2" value="2" autocomplete="off">
-                <label class="btn btn-outline-info" for="gen2">Very Good</label>
+                <label class="btn btn-outline-info" for="gen2">Muy bueno</label>
         
                 <input type="radio" class="btn-check" name="GenHlth" id="gen3" value="3" autocomplete="off">
-                <label class="btn btn-outline-info" for="gen3">Good</label>
+                <label class="btn btn-outline-info" for="gen3">Bueno</label>
         
                 <input type="radio" class="btn-check" name="GenHlth" id="gen4" value="4" autocomplete="off">
-                <label class="btn btn-outline-info" for="gen4">Fair</label>
+                <label class="btn btn-outline-info" for="gen4">Decente</label>
         
                 <input type="radio" class="btn-check" name="GenHlth" id="gen5" value="5" autocomplete="off">
-                <label class="btn btn-outline-info" for="gen5">Poor</label>
+                <label class="btn btn-outline-info" for="gen5">Malo</label>
             </div>
         </div>
 
         <div class="form-group">
-            <label for="Age">What's your age?</label>
+            <label for="Age">¿Cuál es tu edad?</label>
             <input type="number" min="18" max="120" class="form-control" name="Age" id="Age" placeholder="e.g., 45" required>
         </div>
 
         <div class="form-group">
-            <label for="Education">What's your level of education?</label>
+            <label for="Education">¿Cuál es tu nivel de educación?</label>
             <div class="btn-group" role="group" aria-label="Education">
-                <input type="radio" class="btn-check" name="Education" id="edu1" value="1" autocomplete="off">
-                <label class="btn btn-outline-secondary" for="edu1">No School/KG</label>
+                <input type="radio" class="btn-check" name="Education" id="edu1" value="1" autocomplete="off" required>
+                <label class="btn btn-outline-secondary" for="edu1">Sin educación</label>
         
                 <input type="radio" class="btn-check" name="Education" id="edu2" value="2" autocomplete="off">
-                <label class="btn btn-outline-secondary" for="edu2">Elementary (1-8)</label>
+                <label class="btn btn-outline-secondary" for="edu2">Primaria</label>
         
                 <input type="radio" class="btn-check" name="Education" id="edu3" value="3" autocomplete="off">
-                <label class="btn btn-outline-secondary" for="edu3">Some HS (9-11)</label>
+                <label class="btn btn-outline-secondary" for="edu3">Secundaria incompleta</label>
         
                 <input type="radio" class="btn-check" name="Education" id="edu4" value="4" autocomplete="off">
-                <label class="btn btn-outline-secondary" for="edu4">HS Grad (12/GED)</label>
+                <label class="btn btn-outline-secondary" for="edu4">Graduado de secundaria / Bachillerato completo</label>
         
                 <input type="radio" class="btn-check" name="Education" id="edu5" value="5" autocomplete="off">
-                <label class="btn btn-outline-secondary" for="edu5">Some College</label>
+                <label class="btn btn-outline-secondary" for="edu5">Algo de universidad o instituto técnico</label>
         
                 <input type="radio" class="btn-check" name="Education" id="edu6" value="6" autocomplete="off">
-                <label class="btn btn-outline-secondary" for="edu6">College Grad</label>
+                <label class="btn btn-outline-secondary" for="edu6">Graduado universitario</label>
             </div>
         </div>
 
         <div class="form-group">
-            <label for="Income">What's your income?</label>
+            <label for="Income">¿Cuál es tu nivel de ingresos?</label>
             <div class="income-options">
-                <label><input type="radio" name="Income" value="1"> &lt; $10k</label>
+                <label><input type="radio" name="Income" value="1" required> &lt; $10k</label>
                 <label><input type="radio" name="Income" value="2"> $10k-$15k</label>
                 <label><input type="radio" name="Income" value="3"> $15k-$20k</label>
                 <label><input type="radio" name="Income" value="4"> $20k-$25k</label>
@@ -237,9 +237,9 @@
         </div>
 
         <div class="form-group">
-            <label for="MentHlth_Bin">In the last 30 days, how many have you had bad mental health?</label>
+            <label for="MentHlth_Bin">En los últimos 30 días, ¿cuántos días tuviste mala salud mental?</label>
             <div class="btn-group" role="group" aria-label="MentHlth">
-                <input type="radio" class="btn-check" name="MentHlth_Bin" id="ment0" value="0" autocomplete="off">
+                <input type="radio" class="btn-check" name="MentHlth_Bin" id="ment0" value="0" autocomplete="off" required>
                 <label class="btn btn-outline-primary" for="ment0">0</label>
         
                 <input type="radio" class="btn-check" name="MentHlth_Bin" id="ment1" value="1" autocomplete="off">
@@ -257,9 +257,9 @@
         </div>
 
         <div class="form-group">
-            <label for="PhysHlth_Bin">In the last 30 days, how many have you had physical unhealthyness?</label>
+            <label for="PhysHlth_Bin">En los últimos 30 días, ¿cuántos días tuviste problemas de salud física?</label>
             <div class="btn-group" role="group" aria-label="PhysHlth">
-                <input type="radio" class="btn-check" name="PhysHlth_Bin" id="phy0" value="0" autocomplete="off">
+                <input type="radio" class="btn-check" name="PhysHlth_Bin" id="phy0" value="0" autocomplete="off" required>
                 <label class="btn btn-outline-primary" for="phy0">0</label>
         
                 <input type="radio" class="btn-check" name="PhysHlth_Bin" id="phy1" value="1" autocomplete="off">
@@ -276,7 +276,7 @@
             </div>
         </div>
       
-        <button type="submit">Predict</button>
+        <button type="submit">Predecir</button>
     </form>
       
     <div id="result"></div>
